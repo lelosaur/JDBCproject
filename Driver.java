@@ -21,8 +21,9 @@ public class Driver {
    	Class.forName("org.postgresql.Driver");  //Registering the driver
     connection = DriverManager.getConnection(
             "jdbc:postgresql://localhost:5432/postgres", uname, pass);  //Making the Connection 
-    //create JDBC object(user/useryelp)
     
+
+    //create JDBC object(user/useryelp)
     //create review1 object instance
     //Review review1 = new Review(1234, 123,"User1","Store1", "review1");
     //create reviewStore instance
@@ -39,9 +40,9 @@ public class Driver {
     Users user = new Users("User1", 1);
     
     //insert to tables
-    rStore.createReview(review);
-    //sStore.createStore(store);
-    uStore.createUser(user);
+    rStore.createReview(connection, review);
+    sStore.createStore(connection, store);
+    uStore.createUser(connection, user);
     
     
     //app.makeReviewTable(connection);

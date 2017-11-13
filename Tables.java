@@ -16,12 +16,11 @@ import java.sql.SQLException;
  * @author daryl
  */
 public class Tables {
+ 
     public Tables(){
         
     }
-//    Connection conn;
-//    Connection conn1;
-//    Connection conn2;
+
     public void createReviews(){
         try{
     Connection conn =  DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "ihateryan"); 

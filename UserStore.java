@@ -18,11 +18,11 @@ public class UserStore {
     public UserStore(){
     }
     Connection connection;
-    public void createUser(Users users){
+    public void createUser(Connection connection, Users users){
         
         //Review review1 = new Review(UserID,StoreID, Usersname, Storename, review);
         try{
-            Connection connection =  DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "ihateryan"); 
+            //Connection connection =  DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "ihateryan"); 
             
             String sql = "INSERT INTO Users(username, userID) VALUES(?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);

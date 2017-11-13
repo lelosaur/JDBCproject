@@ -19,11 +19,11 @@ public class ReviewStore{
     
 }
     Connection connection;
-    public void createReview(Review review){
+    public void createReview(Connection connection, Review review){
         
         //Review review1 = new Review(UserID,StoreID, Usersname, Storename, review);
         try{
-            Connection connection =  DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "ihateryan"); 
+           // Connection connection =  DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "ihateryan"); 
             String sql = "INSERT INTO reviews(userID, usersname, storename, storeID, review) VALUES(?,?,?,?,?)";
             //Connection connection = review.setConnection();
             PreparedStatement statement = connection.prepareStatement(sql);

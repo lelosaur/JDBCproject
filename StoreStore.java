@@ -19,9 +19,9 @@ public class StoreStore {
     public StoreStore(){
     
 }
-        public void createStore(Stores store){
+        public void createStore(Connection connection, Stores store){
             try{
-            Connection connection =  DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "ihateryan"); 
+            //Connection connection =  DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "ihateryan"); 
             String sql = "INSERT INTO Stores(Storename, StoreID) VALUES(?,?)";
             //Connection connection = review.setConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
