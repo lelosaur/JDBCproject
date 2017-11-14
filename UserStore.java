@@ -15,10 +15,12 @@ import java.sql.SQLException;
  * @author daryl
  */
 public class UserStore {
-    public UserStore(){
+    private Connection connection;
+
+    public UserStore(Connection connection){
+        this.connection = connection;
     }
-    Connection connection;
-    public void createUser(Connection connection, Users users){
+    public void createUser(Users users){
         
         //Review review1 = new Review(UserID,StoreID, Usersname, Storename, review);
         try{
