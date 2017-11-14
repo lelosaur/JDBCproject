@@ -12,24 +12,24 @@ import java.io.*;
  * @author daryl
  */
 public class Users {
-    private String Username;
-    private int UserID;
+    private String username;
+    private int userID;
     
-    public Users(String Usernames, int UserID){
-        this.Username = Usernames;
-        this.UserID = UserID;
+    public Users(String username, int userID){
+        this.username = username;
+        this.userID = userID;
     }
-    public void setUsername(String Username){
-        this.Username = Username;
+    public void setUsername(String username){
+        this.username = username;
     }
     public String getUsername(){
-        return Username;
+        return username;
     }
-    public void setUserID(int UserID){
-        this.UserID = UserID;
+    public void setUserID(int userID){
+        this.userID = userID;
     }
     public int getUserID(){
-        return UserID;
+        return userID;
     }
 
 }

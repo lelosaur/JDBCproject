@@ -28,7 +28,7 @@ public class Driver {
     //Review review1 = new Review(1234, 123,"User1","Store1", "review1");
     //create reviewStore instance
     ReviewStore rStore = new ReviewStore(connection);
-    StoreStore sStore = new StoreStore(connection);
+    StoreRestaurant sRestaurant = new StoreRestaurant(connection);
     UserStore uStore = new UserStore(connection);
     Tables tables = new Tables(connection);
 //    tables.createStores();
@@ -41,7 +41,7 @@ public class Driver {
     
     //insert to tables
     rStore.createReview(review);
-    sStore.createStore(store);
+    sRestaurant.createStore(store);
     uStore.createUser(user);
     
     
