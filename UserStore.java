@@ -20,7 +20,7 @@ public class UserStore {
         this.connection = connection;
     }
 //    Connection connection;
-    public void createUser(Users users){
+    public void createUser(YelpUser users){
         
         //Review review1 = new Review(UserID,StoreID, Usersname, Storename, review);
         try{
