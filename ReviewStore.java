@@ -25,13 +25,13 @@ public class ReviewStore{
         //Review review1 = new Review(UserID,StoreID, Usersname, Storename, review); <- names of variables in instantiation
         try{
            
-            String sql = "INSERT INTO reviews(userID, usersname, storename, storeID, review) VALUES(?,?,?,?,?)";
+            String sql = "INSERT INTO reviews(userID, usersname, restaurantname, restaurantID, review) VALUES(?,?,?,?,?)";
            
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, review.getUserID());
             statement.setString(2, review.getUsername());
-            statement.setString(3, review.getStorename());
-            statement.setInt(4, review.getStoreID());
+            statement.setString(3, review.getRestaurantName());
+            statement.setInt(4, review.getRestaurantID());
             statement.setString(5, review.getReview());
             statement.execute();
             statement.close();

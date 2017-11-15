@@ -28,24 +28,27 @@ public class Driver {
     //Review review1 = new Review(1234, 123,"User1","Store1", "review1");
     //create reviewStore instance
     ReviewStore rStore = new ReviewStore(connection);
-    StoreRestaurant sRestaurant = new StoreRestaurant(connection);
+    RestaurantStore sRestaurant = new RestaurantStore(connection);
     UserStore uStore = new UserStore(connection);
     Tables tables = new Tables(connection);
-//    tables.createStores();
-//    tables.createReviews();
-//    tables.createUsers();
-    //UserID, Usersname, Storename, StoreID, review
-    Review review = new Review(1, "User1", "store1", 1, "is gud");
-    Stores store = new Stores("store1", 1);
-    Users user = new Users("User1", 1);
+    tables.createRestaurants();
+    tables.createUsers();
+    tables.createReviews();
+  
+   
+    Review review = new Review(1, "User1", "restaurant1", 1, "is gud");
+    Restaurant store = new Restaurant("restaurant1", 1);
+    Restaurant store2 = new Restaurant("restaurant2", 2);
+    YelpUser user = new YelpUser("User1", 1);
     
-    //insert to tables
-    rStore.createReview(review);
-    sRestaurant.createStore(store);
+    //insert to tables    
+    sRestaurant.createRestaurant(store);
+    sRestaurant.createRestaurant(store2);
     uStore.createUser(user);
+    rStore.createReview(review);
+
     
     
-    //app.makeReviewTable(connection);
-    connection.close();
-}
+    
+    connection.close();}
 }

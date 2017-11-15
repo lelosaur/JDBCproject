@@ -16,20 +16,20 @@ public class Review {
     //UserID, Usersname, Storename, StoreID, review
     private int userID;
     private String username;
-    private String storename;
-    private int storeID;
+    private String restaurantname;
+    private int restaurantID;
     private String review;
     
     
     
     
     
-    public Review( int userID, String username, String storename, int storeID, String review){
+    public Review( int userID, String username, String restaurantname, int storeID, String review){
         this.username = username;
         this.userID = userID;
         this.review = review;
-        this.storename = storename;
-        this.storeID = storeID;  
+        this.restaurantname = restaurantname;
+        this.restaurantID = storeID;  
     }
  
     
@@ -45,11 +45,11 @@ public class Review {
     public String getReview(){
     return review;
     }
-    public void setStorename(String storename){
-    this.storename = storename;
+    public void setStorename(String restaurantname){
+    this.restaurantname = restaurantname;
     }
-    public String getStorename(){
-    return storename;
+    public String getRestaurantName(){
+    return restaurantname;
     }
     public void setUserID(int userID){
     this.userID = userID;
@@ -57,10 +57,10 @@ public class Review {
     public int getUserID(){
     return userID;
     }
-    public void setStoreID(int storeID){
-    this.storeID = storeID;
+    public void setRestaurantID(int restaurantID){
+    this.restaurantID = restaurantID;
     }
-    public int getStoreID(){
-    return storeID;
+    public int getRestaurantID(){
+    return restaurantID;
     }
 }

@@ -26,11 +26,10 @@ public class Tables {
     
             //userID, usersname, storename, storeID, review
             String sql = "CREATE TABLE Reviews " +
-                   "(userID INTEGER not NULL, " +
-                   "storeID VARCHAR(255) not NULL, " +
+                   "(userID INTEGER not NULL REFERENCES users(userID), " +
                    " usersname VARCHAR(255), " + 
-                   " storename VARCHAR(255), " +
-                   " storeID VARCHAR(255) not NULL, " +
+                   " restaurantname VARCHAR(255), " +
+                   " restaurantID INTEGER not NULL REFERENCES restaurants(restaurantID), " +
                    "review VARCHAR(800)) ";
             
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -68,14 +67,14 @@ public class Tables {
     }
     
 
-    public void createStores(){
+    public void createRestaurants(){
         try{
             
             //storename, storeID
-            String sql = "CREATE TABLE Stores " +
-                   " (storeName VARCHAR(255), " +
-                   " storeID INTEGER not NULL, " +
-                   " PRIMARY KEY ( storeID ))"; 
+            String sql = "CREATE TABLE Restaurants " +
+                   " (restaurantName VARCHAR(255), " +
+                   " restaurantID INTEGER not NULL, " +
+                   " PRIMARY KEY ( restaurantID ))"; 
             
             PreparedStatement statement = connection.prepareStatement(sql);
             //ResultSet rs = 
@@ -84,7 +83,7 @@ public class Tables {
             
         }
         catch(SQLException e){
-		System.err.println("Insert failed in createStores");
+		System.err.println("Insert failed in createRestaurants");
 		System.err.println("Message from Postgres: " + e.getMessage());
 		System.exit(-1);
         }
