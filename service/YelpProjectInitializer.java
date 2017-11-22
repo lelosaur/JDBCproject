@@ -30,10 +30,7 @@ public class YelpProjectInitializer {
             "jdbc:postgresql://localhost:5432/postgres", uname, pass);  //Making the Connection 
     
 
-    //create JDBC object(user/useryelp)
-    //create review1 object instance
-    //Review review1 = new Review(1234, 123,"User1","Store1", "review1");
-    //create reviewStore instance
+    // instantiate store objects, link connection, and create tables
     ReviewStore rStore = new ReviewStore(connection);
     RestaurantStore sRestaurant = new RestaurantStore(connection);
     UserStore uStore = new UserStore(connection);
@@ -42,7 +39,7 @@ public class YelpProjectInitializer {
     tables.createUsers();
     tables.createReviews();
   
-   
+   //Give values to objects 
     Review review = new Review(1, "User1", "restaurant1", 1, "is gud");
     Restaurant store = new Restaurant("restaurant1", 1);
     Restaurant store2 = new Restaurant("restaurant2", 2);

@@ -12,6 +12,7 @@ import java.io.*;
  * @author daryl
  */
 public class YelpUser {
+    //create User object
     private String username;
     private int userID;
     

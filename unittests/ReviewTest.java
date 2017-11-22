@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package service;
+package unittests;
 
 /**
  *
  * @author daryl
- * handles regulation within RestaurantStore
  */
-public class RestaurantService {
-    public void RestaurantService(){
-        
-    }
+public class ReviewTest {
+    
 }

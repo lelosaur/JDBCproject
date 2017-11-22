@@ -14,6 +14,7 @@ import java.sql.SQLException;
 /**
  *
  * @author daryl
+ * data access layer(data layer)
  */
 public class UserStore {
     private Connection connection;
