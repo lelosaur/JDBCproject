@@ -19,11 +19,11 @@ import java.sql.SQLException;
 public class RestaurantStore {
     private Connection connection;
     public RestaurantStore(Connection connection){
-    this.connection = connection;
-}
-        public void createRestaurant(Restaurant restaurant){
-            try{
-            
+        this.connection = connection;
+    }
+    public void createRestaurant(Restaurant restaurant){
+        try{
+
             String sql = "INSERT INTO Restaurants(restaurantName, restaurantID) VALUES(?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -35,8 +35,8 @@ public class RestaurantStore {
             statement.close();
         }
         catch(SQLException e){
-		System.err.println("Insert failed in createRestaurant");
-		System.err.println("Message from Postgres: " + e.getMessage());
-		System.exit(-1);} 
-        }
+            System.err.println("Insert failed in createRestaurant");
+            System.err.println("Message from Postgres: " + e.getMessage());
+            System.exit(-1);}
+    }
 }

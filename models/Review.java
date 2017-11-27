@@ -19,48 +19,48 @@ public class Review {
     private String restaurantname;
     private int restaurantID;
     private String review;
-    
-    
-    
-    
-    
+
+
+
+
+
     public Review( int userID, String username, String restaurantname, int storeID, String review){
         this.username = username;
         this.userID = userID;
         this.review = review;
         this.restaurantname = restaurantname;
-        this.restaurantID = storeID;  
+        this.restaurantID = storeID;
     }
- 
-    
+
+
     public void setUsername(String username){
         this.username = username;
     }
     public String getUsername(){
         return username;
-    } 
+    }
     public void setReview(String review){
-    this.review = review;
+        this.review = review;
     }
     public String getReview(){
-    return review;
+        return review;
     }
     public void setStorename(String restaurantname){
-    this.restaurantname = restaurantname;
+        this.restaurantname = restaurantname;
     }
     public String getRestaurantName(){
-    return restaurantname;
+        return restaurantname;
     }
     public void setUserID(int userID){
-    this.userID = userID;
+        this.userID = userID;
     }
     public int getUserID(){
-    return userID;
+        return userID;
     }
     public void setRestaurantID(int restaurantID){
-    this.restaurantID = restaurantID;
+        this.restaurantID = restaurantID;
     }
     public int getRestaurantID(){
-    return restaurantID;
+        return restaurantID;
     }
 }

@@ -15,7 +15,7 @@ public class YelpUser {
     //create User object
     private String username;
     private int userID;
-    
+
     public YelpUser(String username, int userID){
         this.username = username;
         this.userID = userID;

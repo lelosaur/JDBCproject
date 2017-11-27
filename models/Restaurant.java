@@ -20,20 +20,20 @@ public class Restaurant {
         this.restaurantID = restaurantID;
 
     }
-    
+
     public void setRestaurant(String restaurant){
         this.restaurant = restaurant;
     }
     public String getrestaurant(){
         return restaurant;
-        
+
     }
     public void setRestaurantID(int restaurantID){
-    this.restaurantID = restaurantID;
-}
+        this.restaurantID = restaurantID;
+    }
     public int getRestaurantID(){
         return restaurantID;
     }
 
-    
+
 }

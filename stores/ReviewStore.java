@@ -19,15 +19,15 @@ public class ReviewStore{
     private Connection connection;
     public ReviewStore(Connection connection){
         this.connection = connection;
-}
-   
+    }
+
     public void createReview(Review review){
-        
+
         //Review review1 = new Review(UserID,StoreID, Usersname, Storename, review); <- names of variables in instantiation
         try{
-           
+
             String sql = "INSERT INTO reviews(userID, usersname, restaurantname, restaurantID, review) VALUES(?,?,?,?,?)";
-           
+
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, review.getUserID());
             statement.setString(2, review.getUsername());
@@ -38,18 +38,18 @@ public class ReviewStore{
             statement.close();
         }
         catch(SQLException e){
-		System.err.println("Insert failed in createReview");
-		System.err.println("Message from Postgres: " + e.getMessage());
-		System.exit(-1);}
-	
-    }
-        
+            System.err.println("Insert failed in createReview");
+            System.err.println("Message from Postgres: " + e.getMessage());
+            System.exit(-1);}
+
     }
 
-
-   
-    
+}
 
 
-    
+
+
+
+
+
 
