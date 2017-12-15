@@ -1,5 +1,6 @@
 package module;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,9 +14,9 @@ public class UsernameTextFileReader  { // logic for comparing username from a te
 
     }
 //converts a text file into a list, and iterates through it while comparing to a test username to decide validity
-    public String testUsername(Scanner textFile, String testUserName){
+    public String testUsername(File textFile, String testUserName) throws Exception{
        WordFromFile wordFromFile = new WordFromFile();
-       
+
         List<String> textFileReader;
        textFileReader =  wordFromFile.TextFileReader(textFile);
 
@@ -31,9 +32,7 @@ public class UsernameTextFileReader  { // logic for comparing username from a te
 
 
 
-    //you're not getting the point of this. WordFromFile parses the text file and UsernameTextFileReader takes a <String>
-    //and compares each value to the proposed username. so UTFR.java will take in a single STRING, use WFF to read in
-    //the text file
+
 
     }
 
