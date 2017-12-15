@@ -20,7 +20,9 @@ public class WordFromFile implements WordPopulator {
         String nextinlist;
         //place all String username values into list usernametestlist
         while (textfile.hasNext()) {
-            nextinlist = textfile.next();
+            //String[] tokens = scanner.nextLine().split(";");
+            //separates by line. Use .split(;) for ; as delimiter
+            nextinlist = textfile.nextLine();
             readinlist.add(nextinlist);
         }
         return readinlist;
