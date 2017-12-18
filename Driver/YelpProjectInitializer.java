@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Driver;
+import module.UsernameTextFileReader;
 import util.CreateTables;
 import stores.RestaurantStore;
 import stores.ReviewStore;
@@ -13,6 +14,8 @@ import models.YelpUser;
 import models.Restaurant;
 import java.sql.*;
 import java.io.*;
+import java.util.Scanner;
+
 /**
  *
  * @author daryl
@@ -60,12 +63,19 @@ public class YelpProjectInitializer {
         }
 
 
-        //Give values to objects. must
+        //Give values to objects. must be in this order due to relations and foreign keys
         Review review = new Review(1, "User1", "restaurant1", 1, "is gud");
         Restaurant store = new Restaurant("restaurant1", 1);
         Restaurant store2 = new Restaurant("restaurant2", 2);
         YelpUser user = new YelpUser("User1", 1);
         YelpUser user2 = new YelpUser("User2", 2);
+
+        //testing Usernames
+        File testfile = new File("C:\\Users\\daryl\\IdeaProjects\\YelpProject");
+        UsernameTextFileReader usernameTextFileReader = new UsernameTextFileReader();
+        usernameTextFileReader.testUsername("testfile.txt","Username5");
+        UsernameTextFileReader usernameTextFileReader2 = new UsernameTextFileReader();
+        usernameTextFileReader2.testUsername(testfile,"Username5");
 
         //insert to createTables
         uStore.createUser(user2);
