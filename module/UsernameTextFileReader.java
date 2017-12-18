@@ -19,20 +19,18 @@ public class UsernameTextFileReader  { // logic for comparing username from a te
 
         List<String> textFileReader;
        textFileReader =  wordFromFile.TextFileReader(textFile);
+       if(textFileReader.contains(testUserName)){
+            System.out.println("not a valid username");
+            return null;
+       }
+       else {
+           System.out.println("Successful username");
+           return testUserName;
+       }
 
-        for(int i = 0; i < textFileReader.size(); i++){
-            if(testUserName == textFileReader.get(i)){
-                return null;
-            }
-        }
-        return testUserName;
+
 
 
     }
-
-
-
-
-
     }
 

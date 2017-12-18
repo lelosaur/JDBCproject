@@ -14,6 +14,8 @@ import models.YelpUser;
 import models.Restaurant;
 import java.sql.*;
 import java.io.*;
+
+
 import java.util.Scanner;
 
 /**
@@ -21,9 +23,11 @@ import java.util.Scanner;
  * @author daryl
  */
 public class YelpProjectInitializer {
-    public static void main(String[] args) throws
-            ClassNotFoundException, FileNotFoundException, IOException,
-            SQLException {
+    public static void main(String[] args) throws Exception
+//            ClassNotFoundException, FileNotFoundException, IOException,
+//            SQLException
+    {
+
         Connection connection;
         String uname = "postgres";
         String pass = "admin";
@@ -71,18 +75,28 @@ public class YelpProjectInitializer {
         YelpUser user2 = new YelpUser("User2", 2);
 
         //testing Usernames
-        File testfile = new File("C:\\Users\\daryl\\IdeaProjects\\YelpProject");
+        File testfile = new File("C:/Users/daryl/Desktop/tests/testfile.txt");
+        //Note to self:requires Throws Exception
         UsernameTextFileReader usernameTextFileReader = new UsernameTextFileReader();
-        usernameTextFileReader.testUsername("testfile.txt","Username5");
+        try {
+            usernameTextFileReader.testUsername(testfile,"Username3");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         UsernameTextFileReader usernameTextFileReader2 = new UsernameTextFileReader();
-        usernameTextFileReader2.testUsername(testfile,"Username5");
+        usernameTextFileReader2.testUsername(testfile,"Username4");
+
+        UsernameTextFileReader usernameTextFileReaderError = new UsernameTextFileReader();
+        usernameTextFileReaderError.testUsername(testfile, "ErrorUsername1");
+
+        //System.out.println(new File("filename.txt").getAbsolutePath());
 
         //insert to createTables
-        uStore.createUser(user2);
-        sRestaurant.createRestaurant(store);
-        sRestaurant.createRestaurant(store2);
-        uStore.createUser(user);
-        rStore.createReview(review);
+//        uStore.createUser(user2);
+//        sRestaurant.createRestaurant(store);
+//        sRestaurant.createRestaurant(store2);
+//        uStore.createUser(user);
+//        rStore.createReview(review);
 
 
 
