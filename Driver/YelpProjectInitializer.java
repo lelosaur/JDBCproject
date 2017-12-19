@@ -16,7 +16,7 @@ import java.sql.*;
 import java.io.*;
 
 
-import java.util.Scanner;
+
 
 /**
  *
@@ -87,7 +87,7 @@ public class YelpProjectInitializer {
         usernameTextFileReader2.testUsername(testfile,"Username4");
 
         UsernameTextFileReader usernameTextFileReaderError = new UsernameTextFileReader();
-        usernameTextFileReaderError.testUsername(testfile, "ErrorUsername1");
+        usernameTextFileReaderError.testUsername(testfile, "ErrorUsername2");
 
 
         //insert to createTables

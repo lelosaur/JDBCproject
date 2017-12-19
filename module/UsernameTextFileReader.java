@@ -19,7 +19,9 @@ public class UsernameTextFileReader  { // logic for comparing username from a te
 
         List<String> textFileReader;
        textFileReader =  wordFromFile.TextFileReader(textFile);
-       if(textFileReader.contains(testUserName)){
+
+
+       if(textFileReader.contains(testUserName)){ // see if you can figure out an equalsIgnoreCase(username)
             System.out.println("not a valid username");
             return null;
        }
