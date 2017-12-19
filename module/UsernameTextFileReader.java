@@ -24,12 +24,9 @@ public class UsernameTextFileReader  { // logic for comparing username from a te
             return null;
        }
        else {
-           System.out.println("Successful username");
+           System.out.println("Successful username!");
            return testUserName;
        }
-
-
-
 
     }
     }
