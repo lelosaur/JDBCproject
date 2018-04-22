@@ -67,7 +67,7 @@ public class CreateTables {
     }
 
 
-    public void createRestaurants(){
+    public void createRestaurants(Connection connection){
         try{
 
             //storename, storeID
@@ -88,5 +88,21 @@ public class CreateTables {
             System.exit(-1);
         }
     }
-}
+
+    public void deleteTables() {
+        try {
+            String sql = "DROP SCHEMA public CASCADE;\n" +
+                    "CREATE SCHEMA public;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.execute();
+            statement.close();
+        } catch (SQLException e) {
+            System.err.println("Delete failed in deleteTables");
+            System.err.println("Message from Postgres: " + e.getMessage());
+            System.exit(-1);
+
+        }
+    }}
+
 

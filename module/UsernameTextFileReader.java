@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class UsernameTextFileReader  { // logic for comparing username from a text file
 
 
@@ -32,4 +33,6 @@ public class UsernameTextFileReader  { // logic for comparing username from a te
 
     }
     }
+    //ideally read in the file ONCE, save to a PRIVATE arraylist and use that list instead of reading directly from the
+    // txt file each time.<-why you have UTFR.java AND Userservice.java(separation of concerns)
 

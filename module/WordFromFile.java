@@ -13,6 +13,7 @@ public class WordFromFile implements WordPopulator {
 
     @Override
     public List<String> getWord() {
+
         return null;
     }
     /*
@@ -26,7 +27,7 @@ public class WordFromFile implements WordPopulator {
     }
 }
      */
-    //reads in File and uses Scanner to parse through using lines as delimiter. Stores in List readinlist
+    //reads in File and parses through using lines as delimiter. Stores in and returns List readinlist
     public List<String> TextFileReader(File file) throws Exception{
         List<String> readinlist = new ArrayList<String>();
         String nextinlist;

@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package models;
+import stores.RestaurantStore;
+
 import java.sql.*;
 import java.util.*;
 import java.io.*;
@@ -14,6 +16,9 @@ import java.io.*;
 public class Restaurant {
     private String restaurant;
     private int restaurantID;
+    private RestaurantStore restaurantStore; //creating a private field variable in constructor instead of the method
+    //createRestaurant below so all Restaurant classes can call the create class instead of running it each time I have a new
+    // restaurant.
 
     public Restaurant(String restaurant, int restaurantID){
         this.restaurant = restaurant;
@@ -34,6 +39,12 @@ public class Restaurant {
     public int getRestaurantID(){
         return restaurantID;
     }
+
+//    public void createRestaurant(Restaurant restaurant, Connection connection){
+//        RestaurantStore restaurantStore = new RestaurantStore(connection);
+//          restaurantStore.createRestaurant(restaurant);
+//
+//    }
 
 
 }
