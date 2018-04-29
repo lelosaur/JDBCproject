@@ -23,8 +23,7 @@ import java.util.Scanner;
  */
 public class YelpProjectInitializer {
     public static void main(String[] args) throws Exception
-//            ClassNotFoundException, FileNotFoundException, IOException,
-//            SQLException
+
     {
 
         File file = new File("C:\\Users\\daryl\\Desktop\\password.txt");
@@ -48,6 +47,9 @@ public class YelpProjectInitializer {
 
         //create table
         runTables(connection, dbm);
+
+        insertTest(connection);
+
 
         //Give values to objects. must be in this order due to relations and foreign keys
 
@@ -80,22 +82,28 @@ public class YelpProjectInitializer {
             //it's better to put the create method from createUser/Review/Restaurant as a linked method in the
             // Restaurant, Review, and YelpUser models
             Review review = new Review(1, "User1", "restaurant1", 1, "is gud");
-            Restaurant store = new Restaurant("restaurant1", 1);
-            Restaurant store2 = new Restaurant("restaurant2", 2);
+            Restaurant store = new Restaurant(connection);
+//            Restaurant store2 = new Restaurant("restaurant2", 2);
+//            Restaurant store3 = new Restaurant("Restaurant3", 3);
             YelpUser user = new YelpUser("User1", 1);
             YelpUser user2 = new YelpUser("User2", 2);
-            //insert to createTables
+
+            store.createRestaurant("restaurant1", 1);
+            store.createRestaurant("restaurantTest1", 55);
+
 
             // instantiate store objects, link connection,
-            ReviewStore rStore = new ReviewStore(connection);
-            RestaurantStore sRestaurant = new RestaurantStore(connection);
-            UserStore uStore = new UserStore(connection);
+//            ReviewStore rStore = new ReviewStore(connection);
+//            RestaurantStore sRestaurant = new RestaurantStore(connection);
+//            UserStore uStore = new UserStore(connection);
 
-            uStore.createUser(user2);
-            sRestaurant.createRestaurant(store);
-            sRestaurant.createRestaurant(store2);
-            uStore.createUser(user);
-            rStore.createReview(review);
+//            uStore.createUser(user2);
+//            sRestaurant.createRestaurant(store);
+//            sRestaurant.createRestaurant(store2);
+//            uStore.createUser(user);
+//            rStore.createReview(review);
+//            store3.createRestaurant(store3.getRestaurant(), connection);
+
         }
 
         public static void runTables(Connection connection, DatabaseMetaData dbm) throws SQLException {

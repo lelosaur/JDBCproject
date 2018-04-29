@@ -21,15 +21,15 @@ public class RestaurantStore {
     public RestaurantStore(Connection connection){
         this.connection = connection;
     }
-    public void createRestaurant(Restaurant restaurant){
+    public void createRestaurant(String restaurant, Integer restaurantID){
         try{
 
             String sql = "INSERT INTO Restaurants(restaurantName, restaurantID) VALUES(?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql);
 
-            statement.setString(1, restaurant.getrestaurant());
-            statement.setInt(2, restaurant.getRestaurantID());
+            statement.setString(1, restaurant);
+            statement.setInt(2, restaurantID);
 
             statement.execute();
             statement.close();

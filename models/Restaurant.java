@@ -16,23 +16,27 @@ import java.io.*;
 public class Restaurant {
     private String restaurant;
     private int restaurantID;
-    private RestaurantStore restaurantStore; //creating a private field variable in constructor instead of the method
+    //private RestaurantStore restaurantStoreinternal; //creating a private field variable in constructor instead of the method
     //createRestaurant below so all Restaurant classes can call the create class instead of running it each time I have a new
     // restaurant.
+    private Connection connection;
 
-    public Restaurant(String restaurant, int restaurantID){
-        this.restaurant = restaurant;
-        this.restaurantID = restaurantID;
 
+    public Restaurant(Connection connection){ //add Connection variable? what needs to happen is I need to remove
+        //the restaurant and ID variables in order to allow creatRestaurant to take in variables and only have to instantiate
+        //one Restaurant object
+        this.connection = connection;
+        //this.restaurantObj = Restaurant(restaurant, restaurantID);
     }
 
-    public void setRestaurant(String restaurant){
-        this.restaurant = restaurant;
+    public void setConnection(Connection connection){
+        this.connection = connection;
     }
-    public String getrestaurant(){
-        return restaurant;
 
+    public Connection getConnection() {
+        return connection;
     }
+
     public void setRestaurantID(int restaurantID){
         this.restaurantID = restaurantID;
     }
@@ -40,11 +44,12 @@ public class Restaurant {
         return restaurantID;
     }
 
-//    public void createRestaurant(Restaurant restaurant, Connection connection){
-//        RestaurantStore restaurantStore = new RestaurantStore(connection);
-//          restaurantStore.createRestaurant(restaurant);
-//
-//    }
+    public void createRestaurant(String restaurant, Integer restaurantID){
+        RestaurantStore restaurantStore = new RestaurantStore(connection);
+        restaurantStore.createRestaurant(restaurant, restaurantID);
+    }
+
+
 
 
 }
