@@ -6,23 +6,21 @@
 package util;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- *
  * @author daryl
  */
 public class CreateTables {
     private Connection connection;
-    public CreateTables(Connection connection){
-        this.connection=connection;
+
+    public CreateTables(Connection connection) {
+        this.connection = connection;
     }
 
-    public void createReviews(){
-        try{
+    public void createReviews() {
+        try {
 
             //userID, usersname, storename, storeID, review
             String sql = "CREATE TABLE Reviews " +
@@ -36,8 +34,7 @@ public class CreateTables {
             //ResultSet rs =
             statement.execute();
             statement.close();
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             System.err.println("Insert failed in createReviews");
             System.err.println("Message from Postgres: " + e.getMessage());
             System.exit(-1);
@@ -45,8 +42,8 @@ public class CreateTables {
 
     }
 
-    public void createUsers(){
-        try{
+    public void createUsers() {
+        try {
 
             //usersname, userID
             String sql = "CREATE TABLE users " +
@@ -58,8 +55,7 @@ public class CreateTables {
             //ResultSet rs =
             statement.execute();
             statement.close();
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             System.err.println("Insert failed in createUsers");
             System.err.println("Message from Postgres: " + e.getMessage());
             System.exit(-1);
@@ -67,8 +63,8 @@ public class CreateTables {
     }
 
 
-    public void createRestaurants(Connection connection){
-        try{
+    public void createRestaurants(Connection connection) {
+        try {
 
             //storename, storeID
             String sql = "CREATE TABLE Restaurants " +
@@ -81,8 +77,7 @@ public class CreateTables {
             statement.execute();
             statement.close();
 
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             System.err.println("Insert failed in createRestaurants");
             System.err.println("Message from Postgres: " + e.getMessage());
             System.exit(-1);
@@ -103,6 +98,7 @@ public class CreateTables {
             System.exit(-1);
 
         }
-    }}
+    }
+}
 
 

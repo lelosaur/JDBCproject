@@ -5,9 +5,8 @@
  */
 package stores;
 
-import models.YelpUser;
+import models.User;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -18,11 +17,16 @@ import java.sql.SQLException;
  */
 public class UserStore {
     private Connection connection;
-    public UserStore(Connection connection){
+
+    public void setConnection(Connection connection) {
         this.connection = connection;
     }
+    public Connection getConnection(){
+        return connection;
+    }
+
     //    Connection connection;
-    public void createUser(YelpUser users){
+    public void createUser(User users){
 
         //Review review1 = new Review(UserID,StoreID, Usersname, Storename, review);
         try{

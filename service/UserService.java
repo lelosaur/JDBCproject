@@ -1,5 +1,8 @@
 package service;
+import module.UsernameTextFileReader;
+
 import java.io.File;
+import java.io.IOException;
 
 /**
  *
@@ -30,6 +33,30 @@ public class UserService {
     }
     public File getUsernametestfile(){
         return usernametestfile;
+    }
+
+    public void testUsername () throws IOException{
+        File testfile = new File("C:/Users/daryl/Desktop/tests/testfile.txt");
+        //Note to self:requires Throws Exception
+        UsernameTextFileReader usernameTextFileReader = new UsernameTextFileReader();
+        try {
+            usernameTextFileReader.testUsername(testfile, "Username3");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        UsernameTextFileReader usernameTextFileReader2 = new UsernameTextFileReader();
+        try {
+            usernameTextFileReader2.testUsername(testfile, "Username4");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        UsernameTextFileReader usernameTextFileReaderError = new UsernameTextFileReader();
+        try {
+            usernameTextFileReaderError.testUsername(testfile, "ErrorUsername2");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

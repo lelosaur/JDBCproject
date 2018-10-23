@@ -4,27 +4,26 @@
  * and open the template in the editor.
  */
 package models;
-import java.sql.*;
-import java.util.*;
-import java.io.*;
+
+import stores.ReviewStore;
+
+import java.sql.Connection;
+
 /**
- *
  * @author daryl
  */
 //utilizing as service layer? Isolating business logic?
 public class Review {
     //UserID, Usersname, Storename, StoreID, review
-    private int userID;
+    private String userID;
     private String username;
     private String restaurantname;
     private int restaurantID;
     private String review;
+    private Connection connection;
 
 
-
-
-
-    public Review( int userID, String username, String restaurantname, int storeID, String review){
+    public Review(String userID, String username, String restaurantname, int storeID, String review) {
         this.username = username;
         this.userID = userID;
         this.review = review;
@@ -32,35 +31,58 @@ public class Review {
         this.restaurantID = storeID;
     }
 
-
-    public void setUsername(String username){
-        this.username = username;
-    }
-    public String getUsername(){
+    public String getUsername() {
         return username;
     }
-    public void setReview(String review){
-        this.review = review;
+
+    public void setUsername(String username) {
+        this.username = username;
     }
-    public String getReview(){
+
+    public String getReview() {
         return review;
     }
-    public void setStorename(String restaurantname){
+
+    public void setReview(String review) {
+        this.review = review;
+    }
+
+    public void setStorename(String restaurantname) {
         this.restaurantname = restaurantname;
     }
-    public String getRestaurantName(){
+
+    public String getRestaurantName() {
         return restaurantname;
     }
-    public void setUserID(int userID){
-        this.userID = userID;
-    }
-    public int getUserID(){
+
+    public String getUserID() {
         return userID;
     }
-    public void setRestaurantID(int restaurantID){
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public int getRestaurantID() {
+        return restaurantID;
+    }
+
+    public void setRestaurantID(int restaurantID) {
         this.restaurantID = restaurantID;
     }
-    public int getRestaurantID(){
-        return restaurantID;
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+
+    }
+
+    public void storeReview(/*Review review*/) { //should be in userStore
+        ReviewStore reviewStore = new ReviewStore(this.getConnection());
+        Review tempReview = new Review(getUserID(), getUsername(), getRestaurantName(), getRestaurantID(), getReview());
+        reviewStore.createReview(tempReview);
     }
 }
