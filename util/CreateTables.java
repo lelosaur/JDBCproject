@@ -24,14 +24,14 @@ public class CreateTables {
 
             //userID, usersname, storename, storeID, review
             String sql = "CREATE TABLE Reviews " +
-                    "(userID INTEGER not NULL REFERENCES users(userID), " +
+                    "(userID VARCHAR(255) not NULL REFERENCES users(userID), " +
                     " usersname VARCHAR(255), " +
                     " restaurantname VARCHAR(255), " +
                     " restaurantID INTEGER not NULL REFERENCES restaurants(restaurantID), " +
                     "review VARCHAR(800)) ";
 
             PreparedStatement statement = connection.prepareStatement(sql);
-            //ResultSet rs =
+            //ResultSet rs = statement.executeQuery(sql); <- this would be used to retrieve data from the database
             statement.execute();
             statement.close();
         } catch (SQLException e) {
@@ -48,7 +48,7 @@ public class CreateTables {
             //usersname, userID
             String sql = "CREATE TABLE users " +
                     " ( username VARCHAR(255) NOT NULL, " +
-                    " userID INTEGER not NULL, " +
+                    " userID VARCHAR(255) not NULL, " +
                     " PRIMARY KEY ( userID ))";
 
             PreparedStatement statement = connection.prepareStatement(sql);

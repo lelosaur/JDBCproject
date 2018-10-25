@@ -11,7 +11,7 @@ import java.io.*;
  *
  * @author daryl
  */
-public class YelpUser {
+public class YelpUser {//removed due refactoring YelpUser to User.
     //create User object
     private String username;
     private int userID;

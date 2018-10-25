@@ -35,7 +35,7 @@ public class UserStore {
             String sql = "INSERT INTO Users(username, userID) VALUES(?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, users.getUsername());
-            statement.setInt(2, users.getUserID());
+            statement.setString(2, users.getUserID());
 
             statement.execute();
             statement.close();
