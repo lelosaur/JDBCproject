@@ -17,17 +17,17 @@ public class Review {
     //UserID, Usersname, Storename, StoreID, review
     private String userID;
     private String username;
-    private String restaurantname;
-    private int restaurantID;
+    private String restaurantName;
+    private String restaurantID;
     private String review;
     private Connection connection;
 
 
-    public Review(String userID, String username, String restaurantname, int storeID, String review) {
+    public Review(String userID, String username, String restaurantName, String storeID, String review) {
         this.username = username;
         this.userID = userID;
         this.review = review;
-        this.restaurantname = restaurantname;
+        this.restaurantName = restaurantName;
         this.restaurantID = storeID;
     }
 
@@ -48,11 +48,11 @@ public class Review {
     }
 
     public void setStorename(String restaurantname) {
-        this.restaurantname = restaurantname;
+        this.restaurantName = restaurantname;
     }
 
     public String getRestaurantName() {
-        return restaurantname;
+        return restaurantName;
     }
 
     public String getUserID() {
@@ -63,11 +63,11 @@ public class Review {
         this.userID = userID;
     }
 
-    public int getRestaurantID() {
+    public String getRestaurantID() {
         return restaurantID;
     }
 
-    public void setRestaurantID(int restaurantID) {
+    public void setRestaurantID(String restaurantID) {
         this.restaurantID = restaurantID;
     }
 
@@ -80,7 +80,7 @@ public class Review {
 
     }
 
-    public void storeReview(/*Review review*/) { //should be in userStore
+    public void storeReview(/*Review review*/) { //should be in ReviewStore
         ReviewStore reviewStore = new ReviewStore(this.getConnection());
         Review tempReview = new Review(getUserID(), getUsername(), getRestaurantName(), getRestaurantID(), getReview());
         reviewStore.createReview(tempReview);

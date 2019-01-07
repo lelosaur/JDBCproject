@@ -4,6 +4,8 @@ import models.Restaurant;
 import models.Review;
 import models.User;
 import module.UsernameTextFileReader;
+import stores.RestaurantStore;
+import stores.UserStore;
 import util.CreateTables;
 
 import java.io.File;
@@ -44,17 +46,25 @@ public class YelpProjectInitializer {
         //insert order of restaurants + users-> reviews C->AB in terms of hierarchy //later you change user/reviews to ID in the review/restaurant constructors in case user isn't created.<-in relation to
         // userservices where you're checking for existing users
 
-        Restaurant restaurant2 = new Restaurant("restaurant2", 2);
+        Restaurant restaurant2 = new Restaurant("restaurant2", "2");
         restaurant2.setConnection(connection);
-        restaurant2.createRestaurant();
+        RestaurantStore restaurantStore = new RestaurantStore(connection);
+        restaurantStore.createRestaurant(restaurant2);
+        System.out.println(restaurantStore.getRestaurantName(restaurant2.getRestaurantID()));
 
 
-        User user2 = new User("User2", "2");
+
+        User user2 = new User("User2", "1");
         user2.setConnection(connection);
-        user2.createUser(user2);
+        UserStore userStore = new UserStore();
+        userStore.setConnection(connection);
+        userStore.createUser(user2);//create user
+
+        System.out.println(userStore.getUser("1"));//query for user
 
 
-        Review review2 = new Review("2", "User2", "restaurant2", 2, "is 2 gud");
+
+        Review review2 = new Review("1", "User2", "restaurant2", "2", "is 2 gud");
         review2.setConnection(connection);
         review2.storeReview();
 
@@ -85,7 +95,6 @@ public class YelpProjectInitializer {
 
         //instantiate createTables object and connection to start generating tables
         CreateTables createTables = new CreateTables(connection);
-
 
 
         // check if the tables exist. If they don't, make them

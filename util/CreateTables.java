@@ -27,11 +27,11 @@ public class CreateTables {
                     "(userID VARCHAR(255) not NULL REFERENCES users(userID), " +
                     " usersname VARCHAR(255), " +
                     " restaurantname VARCHAR(255), " +
-                    " restaurantID INTEGER not NULL REFERENCES restaurants(restaurantID), " +
+                    " restaurantID VARCHAR (255) not NULL REFERENCES restaurants(restaurantID), " +
                     "review VARCHAR(800)) ";
 
             PreparedStatement statement = connection.prepareStatement(sql);
-            //ResultSet rs = statement.executeQuery(sql); <- this would be used to retrieve data from the database
+
             statement.execute();
             statement.close();
         } catch (SQLException e) {
@@ -69,7 +69,7 @@ public class CreateTables {
             //storename, storeID
             String sql = "CREATE TABLE Restaurants " +
                     " (restaurantName VARCHAR(255), " +
-                    " restaurantID INTEGER not NULL, " +
+                    " restaurantID VARCHAR(255) not NULL, " +
                     " PRIMARY KEY ( restaurantID ))";
 
             PreparedStatement statement = connection.prepareStatement(sql);

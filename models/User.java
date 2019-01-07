@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package models;
+
 import stores.UserStore;
 
-import java.sql.*;
+import java.sql.Connection;
 
 /**
- *
  * @author daryl
  */
 public class User {
@@ -18,36 +18,36 @@ public class User {
     private String userID;
     private Connection connection;
 
-    public User(String username, String userID){
+    public User(String username, String userID) {
         this.username = username;
         this.userID = userID;
     }
-    public void setUsername(String username){
-        this.username = username;
-    }
-    public String getUsername(){
+
+    public String getUsername() {
         return username;
     }
-    public void setUserID(String userID){
-        this.userID = userID;
+
+    public void setUsername(String username) {
+        this.username = username;
     }
-    public String getUserID(){
+
+    public String getUserID() {
         return userID;
     }
-    public void setConnection(Connection connection) {
-        this.connection = connection;
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
-    public Connection getConnection(){
+
+    public Connection getConnection() {
         return connection;
     }
 
-
-    public void createUser(User user) { //should be in UserStore
-        UserStore userStore = new UserStore();
-        userStore.setConnection(this.connection);
-        userStore.createUser(user);
-
+    public void setConnection(Connection connection) {
+        this.connection = connection;
     }
+
+
 
 
 }

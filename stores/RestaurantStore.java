@@ -9,6 +9,7 @@ import models.Restaurant;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -22,7 +23,24 @@ public class RestaurantStore {//handles jdbc psql logic for DB interaction
         this.connection = connection;
     }
 
-    public void getRestaurauntOwner(){
+    public String getRestaurantName(String restaurantID) {
+        String restaurantName = "";
+
+        try {
+            String psql = "SELECT DISTINCT restaurantName FROM Restaurants WHERE restaurantID =?";
+            PreparedStatement statement = connection.prepareStatement(psql);
+            statement.setString(1, restaurantID);
+            ResultSet res = statement.executeQuery(); //add ResultSet to retrieve the results from the query
+            while (res.next()) {
+                restaurantName = res.getString(1);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Query failed in RestaurantStore.getRestaurantName");
+            System.err.println("Message from Postgres: " + e.getMessage());
+        }
+        return restaurantName;
+
 
     }
 
@@ -35,7 +53,7 @@ public class RestaurantStore {//handles jdbc psql logic for DB interaction
             PreparedStatement statement = connection.prepareStatement(sql);
 
             statement.setString(1, restaurant.getRestaurant());
-            statement.setInt(2, restaurant.getRestaurantID());
+            statement.setString(2, restaurant.getRestaurantID());
 
             statement.execute();
             statement.close();

@@ -14,11 +14,12 @@ import java.sql.Connection;
  */
 public class Restaurant {
     private String restaurant;
-    private int restaurantID;
+    private String restaurantID;
     private Connection connection;
+    private RestaurantStore restaurantStore;
 
 
-    public Restaurant(String restaurant, int restaurantID) {
+    public Restaurant(String restaurant, String restaurantID) {
         this.restaurant = restaurant;
         this.restaurantID = restaurantID;
     }
@@ -31,11 +32,11 @@ public class Restaurant {
         this.connection = connection;
     }
 
-    public int getRestaurantID() {
+    public String getRestaurantID() {
         return restaurantID;
     }
 
-    public void setRestaurantID(int restaurantID) {
+    public void setRestaurantID(String restaurantID) {
         this.restaurantID = restaurantID;
     }
 
@@ -49,12 +50,5 @@ public class Restaurant {
 
 
 
-
-    public void createRestaurant() { //should be in userStore
-        RestaurantStore restaurantStore = new RestaurantStore(this.getConnection());
-        Restaurant tempRestaurant = new Restaurant(restaurant, restaurantID);
-        restaurantStore.createRestaurant(tempRestaurant);
-
-    }
 
 }
